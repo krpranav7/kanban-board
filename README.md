@@ -6,7 +6,7 @@ A simple and interactive **Kanban Task Board** built using **HTML, CSS, and Vani
 
 ## 🌐 Live Demo
 
-🚀 **Live Demo:** https://krpranav7.github.io/kanban-board/
+🚀 **Live Demo:** https://kanban-board-xi-three.vercel.app/
 
 ---
 
