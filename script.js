@@ -53,7 +53,18 @@ function updateTaskCount() {
     });
 }
 
-if (localStorage.getItem("tasks")) {
+if (!localStorage.getItem("tasks")) {
+    addTask("Design Landing Page", "Create hero section and navbar.", todo);
+    addTask("Make Board Responsive", "Add media queries for mobile.", todo);
+
+    addTask("Implement Drag & Drop", "Test moving tasks between columns.", progress);
+
+    addTask("Setup Local Storage", "Persist tasks after refresh.", done);
+    addTask("Create Task Modal", "Completed modal UI.", done);
+
+    updateTaskCount();
+}
+else{
     const data = JSON.parse(localStorage.getItem("tasks"));
 
     for (const col in data) {
@@ -65,6 +76,19 @@ if (localStorage.getItem("tasks")) {
         updateTaskCount();
     }
 }
+
+// if (localStorage.getItem("tasks")) {
+//     const data = JSON.parse(localStorage.getItem("tasks"));
+
+//     for (const col in data) {
+//         const column = document.querySelector(`#${col}`);
+//         data[col].forEach(task => {
+//             addTask(task.title, task.desc, column)
+//         })
+
+//         updateTaskCount();
+//     }
+// }
 
 task.forEach(task => {
     task.addEventListener("drag", (e) => {
