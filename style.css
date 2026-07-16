@@ -1,19 +1,20 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body{
+html,
+body {
     height: 100%;
     width: 100%;
 }
 
-html{
+html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-:root{
+:root {
     --background-color: #000000;
     --primary-text-color: #f4f4f4;
     --bg-button-color: #1a1a1a;
@@ -37,18 +38,18 @@ html{
     --border-radius-xxl: 30px;
 }
 
-body{
+body {
     background-color: var(--background-color);
     color: var(--primary-text-color)
 }
 
-main{
+main {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-nav{
+nav {
     padding: var(--nav-padding);
     display: flex;
     align-items: center;
@@ -57,7 +58,8 @@ nav{
     top: 0;
     background-color: var(--background-color);
 }
-nav button{
+
+nav button {
     background-color: var(--bg-button-color);
     border: none;
     outline: none;
@@ -67,14 +69,15 @@ nav button{
     border-radius: var(--border-radius-m);
 }
 
-section{
+section {
     padding: var(--section-padding);
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
     gap: var(--padding-xxl);
 }
-section .task-column{
+
+section .task-column {
     flex-grow: 1;
     width: 100%;
     background-color: var(--bg-button-color);
@@ -85,17 +88,20 @@ section .task-column{
     border-radius: var(--border-radius-m);
     transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
 }
-section .task-column.hover-over{
+
+section .task-column.hover-over {
     border: 2px dashed var(--primary-text-color);
     scale: 1.05;
 }
-section .task-column .heading{
+
+section .task-column .heading {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-section .task-column .task{
+
+section .task-column .task {
     background-color: var(--bg-task-color);
     padding: var(--padding-m);
     border-radius: var(--border-radius-m);
@@ -104,7 +110,8 @@ section .task-column .task{
     gap: var(--padding-s);
     cursor: grab;
 }
-section .task-column .task button{
+
+section .task-column .task button {
     align-self: flex-end;
     cursor: pointer;
     padding: var(--padding-s) var(--padding-m);
@@ -115,7 +122,7 @@ section .task-column .task button{
     color: var(--primary-text-color);
 }
 
-.modal{
+.modal {
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -125,17 +132,20 @@ section .task-column .task button{
     align-items: center;
     justify-content: center;
 }
-.modal.active{
+
+.modal.active {
     display: flex;
 }
-.modal .bg{
+
+.modal .bg {
     position: absolute;
     height: 100%;
     width: 100%;
     background-color: rgba(61, 61, 61, 0.404);
     backdrop-filter: blur(3px);
 }
-.modal .center{
+
+.modal .center {
     background-color: var(--bg-button-color);
     padding: var(--padding-xxl);
     border-radius: var(--border-radius-m);
@@ -144,7 +154,10 @@ section .task-column .task button{
     gap: var(--padding-m);
     z-index: 10;
 }
-.modal .center input, .modal .center textarea, .modal .center select{
+
+.modal .center input,
+.modal .center textarea,
+.modal .center select {
     background-color: var(--bg-task-color);
     border: none;
     outline: none;
@@ -152,7 +165,8 @@ section .task-column .task button{
     padding: var(--padding-m);
     border-radius: var(--border-radius-s);
 }
-.modal .center button{
+
+.modal .center button {
     background-color: var(--bg-task-color);
     border: none;
     outline: none;
@@ -162,4 +176,105 @@ section .task-column .task button{
     border-radius: var(--border-radius-m);
     width: fit-content;
     align-self: center;
+}
+
+
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+
+    :root {
+        --nav-padding: 15px 20px;
+        --section-padding: 15px 20px;
+    }
+
+    section {
+        gap: 20px;
+    }
+
+    .task-column {
+        min-width: 0;
+    }
+
+    .task h2 {
+        font-size: 1.1rem;
+    }
+
+    .task p {
+        font-size: 0.9rem;
+        word-break: break-word;
+    }
+
+    .modal .center {
+        width: 85%;
+        max-width: 450px;
+    }
+}
+
+/* Mobile (<768px) */
+@media (max-width: 768px) {
+
+    :root {
+        --nav-padding: 15px;
+        --section-padding: 15px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    nav button {
+        width: 100%;
+    }
+
+    section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .task-column {
+        width: 100%;
+    }
+
+    .modal .center {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .modal .center input,
+    .modal .center textarea {
+        width: 100%;
+    }
+}
+
+/* Small Phones (<480px) */
+@media (max-width: 480px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    .task {
+        padding: 12px;
+    }
+
+    .task h2 {
+        font-size: 1rem;
+    }
+
+    .task p {
+        font-size: 0.85rem;
+    }
+
+    nav .left {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .modal .center {
+        width: 95%;
+        padding: 16px;
+    }
 }
